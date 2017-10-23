@@ -25,7 +25,7 @@
   /Subject (Electrostatics)
   /Keywords (pdflatex, latex,pdftex,tex)}
 
-\title{Circuits Exam Cheat Sheet}
+\title{Magnetic Fields Exam Cheat Sheet}
 
 % This sets page margins to .5 inch if using letter paper, and to 1cm
 % if using A4 paper. (This probably isn't strictly necessary.)
@@ -86,7 +86,7 @@
 \setlength{\columnsep}{2pt}
 
 \begin{center}
-     \Large{\underline{Circuits Exam Cheat Sheet}} \\
+     \Large{\underline{Magnetic Fields Exam Cheat Sheet}} \\
 \end{center}
 
 \section{Definitions and Units}
@@ -94,9 +94,13 @@
     \begin{tabular}{| L{1.7cm} | L{1.5cm} | L{2cm} | R{1cm} |}
     \hline
     Name & Scaler or Vector? & Symbol & Units \\ \hline
-    ``Force" & vector & $\vec{F}$ & N \\ \hline
+    ``Force" & vector & $\vec{F}$ & N \\ 
+    ``Force due to electric field" & vector & $\vec{F} = q\vec{E}$ & N\\
+    ``Force due to magnetic field'' & vector & $\vec{F} = q\vec{v}\times\vec{B}$ & N \\
+    \hline
     ``Work" & scaler & $W \equiv \int_{path}\vec{F}\cdot\vec{dl}$ & J \\ \hline
     ``Potential Energy" & scaler & $\Delta U\equiv -W$ & J \\ \hline
+    ``Magnetic Field'' & vector & $\vec{dB} = \frac{\mu_0}{4\pi}\frac{I\vec{dl}\times\hat{r}}{r^2}$ & Tesla (T) = $\frac{N\cdot s}{C\cdot m}=\frac{N}{A\cdot m}= \frac{kg}{C\cdot s}$ \\\hline
     ``Electric Field" & vector & $\vec{E}\equiv\vec{F}/q$ & N/C \\ \hline
     ``Electric Potential", or "Voltage" & scaler & $\Delta V\equiv\Delta U/q$ & J/C $\equiv$ V\\
     \hline
@@ -107,12 +111,117 @@
     \end{tabular}
 %\end{center}
 
+\section{Magnetic Field}
+Moving charge creates magnetic fields. Biot and Savart experimentally determined that a segment of current $I$ flowing in direction $\vec{dl}$ contributes this magnetic field to a location $\vec{r}$ away from that current:
+
+$\vec{dB} = \frac{\mu_0}{4\pi}\frac{I\vec{dl}\times\hat{r}}{r^2}$.
+
+The principle of superposition applies to magnetic fields, so we can use this information to calculate the magnetic field due to an arbitrary current distribution.
+
+\subsection{Magnetic field due to a current-carrying wire}
+\begin{Figure}
+\centering
+\includegraphics[height=3cm]{magneticField_wire_matterAndInteractions}
+%\caption{text}
+\end{Figure}
+
+The magnetic field curls around the current-carrying wire (this direction is denoted $\hat{\theta}$ in cylindrical coordinates).  The magnitude of the magnetic field a distance $r$ from the wire is $|\vec{B}| = \frac{\mu_0 I}{2\pi r}$.
+
+\subsection{Magnetic field due to a current-carrying loop}
+
+\begin{Figure}
+\centering
+\includegraphics[height=3cm]{fieldofcircularloopfourviews}
+%\caption{text}
+\end{Figure}
+
+\begin{Figure}
+\centering
+\includegraphics[height=3cm]{magnetic-field-of-a-circular-curent-loop}
+%\caption{text}
+\end{Figure}
+
+The magnetic field of a loop of current is similar to the electric field of a dipole.
+
+Along the loop axis, the magnetic field points along the axis.  The magnitude of the magnetic field a distance $x$ from the loop along the axis is $|\vec{B}|=\frac{\mu_0Ia^2}{2(x^2+a^2)^{3/2}}$ 
+
+\section{Electric Field}
+%Electric fields are relevant to circuits when working with capacitors (to calculate $\Delta V = -\int\vec{E}\cdot\vec{dl}$ one needs to know the electric field $\vec{E}$.  In addition, when considering the operation of circuits one needs to know the electric field to evaluate the forces experienced by the mobile electrons.
+
+\subsection{Electric Field due to a point-like Object}
+The electric field due to a small, point-like object with net charge $Q$ is measured to be $\vec{E}=\frac{1}{4\pi\epsilon_0}\frac{Q}{r^2}\hat{r}$.
+
+All electric fields can be derived from this, together with the principle of superposition: $\vec{E} = \vec{E_1} + \vec{E_2} + \vec{E_3} + ...$ and allows us to calculated the electric field of an arbitrary, fixed charge distribution.
+
+\subsection{Electric Field due to a charged wire}
+The magnitude of the electric field due to a wire with length L and net charge Q is approximately $\frac{1}{4\pi\epsilon_0}\frac{2Q/L}{r}$, where $r$ is the smallest possible distance to the wire.  This is a good approximation if the length of the wire $L$ is much larger than the distance from the wire $r$.  The direction of the electric field is radially outward from the wire if the charge is positive and radially toward the wire if the charge is negative.
+
+\begin{Figure}
+\centering
+\includegraphics[height=5cm,angle=270]{Efield_wire_matterAndInteractions.PNG}
+%\caption{text}
+\end{Figure}	
+
+
+\subsection{Electric Field due to a charged plane}
+The magnitude of the electric field due to a large, charged plane is approximately $\frac{Q/A}{2\epsilon_0}$.  (Note that this does not depend on the distance from the plate.)  The direction of the electric field is away (perpendicular) from the plane if the plane is positively charged and towards (perpendicular) the plane if the plane is negatively charged.
+\begin{Figure}
+\centering
+\includegraphics[height=3cm]{eField_plane}
+%\caption{text}
+\end{Figure}
+
+\section{Electric Potential}
+The change in electric potential $\Delta V$ is defined as $\Delta U / q$.  Note that the definition of $\Delta U$ above means that $\Delta V \equiv -\int\vec{E}\cdot\vec{dl}$.
+
+%In some cases we talk about the electric potential at a point in space.  By convention, we mean $V_A = V_A - V_{\inf} = V_A - 0$.
+
+%The electric potential at a point a distance $r$ from a point charge $Q$ is $V = \frac{1}{4\pi\epsilon_0}\frac{Q}{r}$.
+
+\section{Vectors}
+If point $S$ is located at $(x_1, y_1, z_1)$ and point $P$ is located at $(x_2, y_2, z_2)$ then the vector from point $S$ to point $P$ can be written: $\vec{r} = (x_2 - x_1)\hat{x} + (y_2 - y_1)\hat{y} + (z_2 - z_1)\hat{z}$.  The length of that vector is also called its magnitude and is denoted $|\vec{r}|$, where $|\vec{r}| = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$.  The magnitude of $\vec{r}$ is sometimes denoted simply by $r$.
+
+\subsection{Unit Vectors}
+A unit vector is a vector with magnitude one (``unity'') and is denoted with a hat: $\hat{r} = \vec{r}/|\vec{r}|$.
+
+\subsection{Cross Product}
+The cross product between two vectors results in a vector perpendicular to both those vectors.  If two vectors are parallel, their cross product is zero.
+
+\begin{align*}
+\vec{a}\times\vec{b} &= 
+\begin{vmatrix}
+\hat{x} & \hat{y} & \hat{z} \\
+a_x & a_y & a_z \\
+b_x & b_y & b_z
+\end{vmatrix} \\
+     &= \hat{x}(a_yb_z-a_zb_y) - \hat{y}(a_xb_z - a_zb_x) + \hat{z}(a_xb_y - a_yb_x)    \\           
+&= |\vec{a}||\vec{b}|\sin{\theta}~\hat{a}\times\hat{b}
+\end{align*}
+
+Note that $\hat{x}\times\hat{y} = \hat{z}$.  Also note that the order of the vectors matters:  $\vec{a}\times\vec{b} = -\vec{b}\times\vec{a}$.
+
+\subsection{Dot Product}
+The dot product between two vectors results in a scaler and measures the ``overlap'' between two vectors.  If two vectors are perpendicular, their dot product is zero.  
+
+\begin{align*}
+\vec{a}\cdot\vec{b} &= a_x*b_x + a_y*b_y + a_z*b_z \\
+                    &= |\vec{a}||\vec{b}|\cos{\theta}
+\end{align*}
+                  
+Note that $\hat{x}\cdot\hat{x} = 1$ while $\hat{x}\cdot\hat{y} = 0$.
+
+\begin{Figure}
+\centering
+\includegraphics[width=0.9\textwidth]{r_vector.PNG}
+%\caption{text}
+\end{Figure}
+
 \section{Batteries}
 A battery is a chemical machine that provides a constant potential (voltage) across its terminals.  
 
 \begin{Figure}
 \centering
-\includegraphics[height=3cm]{nonideal_batter_matterAndInteractions.PNG}
+\includegraphics[height=2cm]{nonideal_batter_matterAndInteractions.PNG}
 %\caption{text}
 \end{Figure}	
 
@@ -145,92 +254,11 @@ The power dissipated in a circuit can be written $P = IV = I^2R$.
 Capacitors store charge - and how fast they discharge is determined by both the resistance and capacitance of the circuit.
 The charge on a discharging capacitor decays exponentially: $Q(t) = Q_0 e^{-t/RC}$.
 
-\section{Electric Field}
-Electric fields are relevant to circuits when working with capacitors (to calculate $\Delta V = -\int\vec{E}\cdot\vec{dl}$ one needs to know the electric field $\vec{E}$.  In addition, when considering the operation of circuits one needs to know the electric field to evaluate the forces experienced by the mobile electrons.
-
-\subsection{Electric Field due to a point-like Object}
-The electric field due to a small, point-like object with net charge $Q$ is measured to be $\vec{E}=\frac{1}{4\pi\epsilon_0}\frac{Q}{r^2}\hat{r}$.
-
-All electric fields can be derived from this, together with the principle of superposition: $\vec{E} = \vec{E_1} + \vec{E_2} + \vec{E_3} + ...$ and allows us to calculated the electric field of an arbitrary, fixed charge distribution.
-
-\subsection{Electric Field due to a charged wire}
-The magnitude of the electric field due to a wire with length L and net charge Q is approximately $\frac{1}{4\pi\epsilon_0}\frac{2Q/L}{r}$, where $r$ is the smallest possible distance to the wire.  This is a good approximation if the length of the wire $L$ is much larger than the distance from the wire $r$.  The direction of the electric field is radially outward from the wire if the charge is positive and radially toward the wire if the charge is negative.
-
-\begin{Figure}
-\centering
-\includegraphics[height=5cm,angle=270]{Efield_wire_matterAndInteractions.PNG}
-%\caption{text}
-\end{Figure}	
-
-
-\subsection{Electric Field due to a charged plane}
-The magnitude of the electric field due to a large, charged plane is approximately $\frac{Q/A}{2\epsilon_0}$.  (Note that this does not depend on the distance from the plate.)  The direction of the electric field is away (perpendicular) from the plane if the plane is positively charged and towards (perpendicular) the plane if the plane is negatively charged.
-\begin{Figure}
-\centering
-\includegraphics[height=3cm]{eField_plane}
-%\caption{text}
-\end{Figure}
-
-\section{Electric Force}
-The electric field is defined to be the force per charge, $\vec{E} = \vec{F}/q$.
-
-If we know the electric field, this allows us to easily calculate the force $\vec{F}$ felt by a point-like object with net charge $q$, $\vec{F} = q\vec{E}$.
-
-\subsection{Electric Field inside a Dielectric (Insulating) Material}
-A dielectric (or insulating) material will \emph{polarize} when exposed to an electric field - the electrons inside the dielectric will move as much as they are able in response to the electric field.
-
-The effect is that the electric field inside the dielectric is reduced.
-
-We describe the amount a dielectric is able to reduce the electric field by the ``dielectric constant'' $K$, where $|\vec{E}| = |\vec{E_0}|/K$.
-
-\section{Parallel Plate Capacitor}
-Capacitors consisting of parallel, conducting plates are common circuit elements.  Like all capacitors, their capacitance can be found through $C\equiv Q/V$, where $V$ is the potential difference between the conducting plates, $\Delta V = -\int\vec{E}\cdot\vec{dl}$.
-
-By calculating $V$ from the electric field $\vec{E}$ between the plates, the capacitance of a parallel plate capacitor can be written $C = \epsilon_0\frac{A}{d}$, where $A$ is the area of one of the plates and $d$ is the distance between the plates.
-
-If a dielectric (insulating) material with dielectric constant $K$ fills the gap between the conducting plates, this changes the electric field, which changes the voltage between the plates, which changes the capacitance: $C = \epsilon_0 K\frac{A}{d}$
-
-\section{Work and Potential Energy}
-The change in potential energy between the start and stop of a path is defined to be negative the work done on that path, or $\Delta U \equiv -W \equiv -\int\vec{F}\cdot\vec{dl}$.  Note that this definition holds no matter what causes the force - gravity or charge.
-
-\section{Electric Potential}
-When considering circuits We \emph{only} talk about the change in electric potential, $\Delta V \equiv \Delta U / q$.  Note that the definition of $\Delta U$ above means that $\Delta V \equiv -\int\vec{E}\cdot\vec{dl}$.
-
-The integral definition of the electric potential can be turned into a differential definition: $\vec{E} = -\vec{\nabla}{V} = -\frac{\partial V}{\partial x}\hat{x} -\frac{\partial V}{\partial  y}\hat{y} - \frac{\partial V}{\partial z}\hat{z}$.
-
-%In some cases we talk about the electric potential at a point in space.  By convention, we mean $V_A = V_A - V_{\inf} = V_A - 0$.
-
-%The electric potential at a point a distance $r$ from a point charge $Q$ is $V = \frac{1}{4\pi\epsilon_0}\frac{Q}{r}$.
-
-\section{Energy}
-Any region with an electric field $\vec{E}$ is storing energy.  The energy density for this region is $u = \frac{1}{2}\epsilon_0|\vec{E}|^2$.
-
-\section{Vectors}
-If point $S$ is located at $(x_1, y_1, z_1)$ and point $P$ is located at $(x_2, y_2, z_2)$ then the vector from point $S$ to point $P$ can be written: $\vec{r} = (x_2 - x_1)\hat{x} + (y_2 - y_1)\hat{y} + (z_2 - z_1)\hat{z}$.  The length of that vector is also called its magnitude and is denoted $|\vec{r}|$, where $|\vec{r}| = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$.  The magnitude of $\vec{r}$ is sometimes denoted simply by $r$.
-
-\subsection{Unit Vectors}
-A unit vector is a vector with magnitude one (``unity'') and is denoted with a hat: $\hat{r} = \vec{r}/|\vec{r}|$.
-
-\subsection{Dot Product}
-The dot product between two vectors results in a scaler and measures the ``overlap'' between two vectors.  If two vectors are perpendicular, their dot product is zero.  
-
-\begin{align*}
-\vec{a}\cdot\vec{b} &= a_x*b_x + a_y*b_y + a_z*b_z \\
-                    &= |\vec{a}||\vec{b}|\cos{\theta}
-\end{align*}
-                  
-Note that $\hat{x}\cdot\hat{x} = 1$ while $\hat{x}\cdot\hat{y} = 0$.
-
-\begin{Figure}
-\centering
-\includegraphics[width=0.9\textwidth]{r_vector.PNG}
-%\caption{text}
-\end{Figure}
-
 \section{Constants}
 
 $\frac{1}{4\pi\epsilon_0} = 9\times 10^9 N/Cm^2$ \newline
 $\epsilon_0 = 8.85\times 10^{-12} {Cm^2/N}$ \newline
+$\mu_0 = 4\pi\times 10^{-7} Tm/A$
 charge of an electron (denoted $-e$) = $-1.6\times 10^{-19} C$\newline
 charge of a proton (denoted $e$) = $1.6\times 10^{-19} C$\newline
 mass of an electron = $9.1\times 10^{-32} kg$ \newline
